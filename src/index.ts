@@ -32,13 +32,12 @@ const memoryOutput = {
     type: 'object' as const,
     additionalProperties: false as const,
     properties: {
-      project: { type: 'string' as const },
-      key: { type: 'string' as const },
-      content: { type: 'string' as const },
-      tags: { type: 'array' as const, items: { type: 'string' as const } },
-      updated_at: { type: 'string' as const },
+      project: { type: 'string' as const, required: true as const },
+      key: { type: 'string' as const, required: true as const },
+      content: { type: 'string' as const, required: true as const },
+      tags: { type: 'array' as const, items: { type: 'string' as const }, required: true as const },
+      updated_at: { type: 'string' as const, required: true as const },
     },
-    required: ['project', 'key', 'content', 'tags', 'updated_at'] as const,
   },
   render(_args: unknown, value: unknown) {
     const m = value as { project: string; key: string; content: string; updated_at: string }
